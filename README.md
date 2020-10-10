@@ -1,9 +1,10 @@
-# Rockabilly
-![Rockabilly preview](./Preview.png)
+# River ranch
+
+![River ranch preview](./Preview.png)
 
 ## Project Overview
 
-This project is for a hands-on Museum exhibit kiosk that plays snippets of the early pioneers of the Rockabilly style.
+This project is for a hands-on Museum exhibit kiosk that details the River ranch park.
 
 ## Setting up the project
 
@@ -34,9 +35,8 @@ yarn start
 
 ```javascript
 /src/components: shared components can be reused across other projects
-/src/containers: Container components are bound to specific animations and data files
-/public/: Images and sound files are loaded from here (instead of being webpacked so that we can reference the path in the data csv file)
-/src/data/LocalLegends.json: lists all of the rockabilly informatino we are displaying (it is being generated from a csv file)
+/src/containers: Container components are bound to route paths and images
+The images for each page are stored under each /src/containers/img directory and paths are mapped through webpack
 ```
 
 ## Production build and server
