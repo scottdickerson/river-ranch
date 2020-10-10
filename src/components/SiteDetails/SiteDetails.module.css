@@ -1,0 +1,131 @@
+.siteDetails {
+  position: fixed;
+  top: 30px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+}
+
+.siteDetailContent {
+  display: flex;
+  width: 85%;
+  height: 75vh;
+  z-index: 10;
+  border: #d0a127 1px solid;
+  border-radius: 30px;
+}
+
+.leftPane {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* allows us to absolutely position stuff within this */
+}
+
+.rightPane {
+  flex: 1 1 50%;
+  position: relative; /* allows us to absolutely position stuff within this */
+}
+
+.siteDetailBackground {
+  background: linear-gradient(to bottom, #404040 0%, black 100%);
+  border-radius: 30px;
+  background-size: 100% 100%;
+  width: 85%;
+  height: 75vh;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+:global(.bottom-enter) {
+  transform: translateY(100%);
+}
+:global(.bottom-enter-active) {
+  transform: translateY(0%);
+  transition: transform 250ms ease-in-out;
+}
+:global(.bottom-enter-done) {
+  transform: translateY(0%);
+}
+
+:global(.bottom-exit) {
+  transform: translateY(0%);
+}
+:global(.bottom-exit) .siteDetailBackground {
+  background-image: url("../../img/00-1600x900-RockabillyLegends-Background@2x.png");
+  background-size: cover;
+  opacity: 1;
+  z-index: -1;
+}
+:global(.bottom-exit-active) {
+  transform: translateY(100%);
+  transition: transform 250ms ease-in-out;
+}
+:global(.bottom-exit-done) {
+  transform: translateY(100%);
+}
+.closeButton {
+  position: absolute;
+  right: 5%;
+  top: 60px;
+  transform: scale(1.5);
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.closeButton:focus,
+.closeButton:active {
+  -webkit-animation: scale 0.2s ease-in-out 0s;
+  -moz-animation: scale 0.2s ease-in-out 0s;
+  -o-animation: scale 0.2s ease-in-out 0s;
+  animation: scale 0.2s ease-in-out 0s;
+}
+
+/* bounce for buttons */
+
+@keyframes scale {
+  0% {
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+@-webkit-keyframes scale {
+  0% {
+  }
+  50% {
+    -webkit-transform: scale(1.25);
+  }
+}
+
+@-moz-keyframes scale {
+  0% {
+  }
+  50% {
+    -moz-transform: scale(1.25);
+  }
+}
+
+@-ms-keyframes scale {
+  0% {
+  }
+  50% {
+    -ms-transform: scale(1.25);
+  }
+}
+
+@-o-keyframes scale {
+  0% {
+  }
+  50% {
+    -o-transform: scale(1.25);
+  }
+}
