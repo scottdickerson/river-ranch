@@ -1,6 +1,6 @@
 .siteCarousel {
   position: relative;
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -13,20 +13,9 @@
   bottom: 0;
 }
 
-.siteCarouselTitle {
-  color: #d0a127;
-  font-size: 51pt;
-  text-transform: uppercase;
-  padding-bottom: 2rem;
-  font-family: BuiltTitling;
-  letter-spacing: 8px;
-  font-weight: bold;
-  text-shadow: 3px 6px 3px rgba(0, 0, 0, 0.5);
-}
-
 .siteCarouselPositioner {
   position: absolute;
-  bottom: 0px;
+  bottom: 100px;
   width: 100%;
   display: flex;
   flex-flow: column;

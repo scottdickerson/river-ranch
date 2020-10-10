@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './SiteSlide.module.css';
+import styles from './SiteSlide.module.css';
+import ReactHTMLParser from 'react-html-parser';
+import classnames from 'classnames';
 
 class SiteSlide extends Component {
   static propTypes = {
@@ -8,6 +10,11 @@ class SiteSlide extends Component {
     thumbnail: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
+    isSelected: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    isSelected: false,
   };
 
   handleClick = event => {
@@ -16,9 +23,11 @@ class SiteSlide extends Component {
   };
 
   render() {
-    const { id, thumbnail, name } = this.props;
+    const { id, thumbnail, name, isSelected } = this.props;
     return (
-      <div className="slide" onClick={this.handleClick}>
+      <div
+        className={classnames('slide', styles.siteSlide, { [styles.isSelected]: isSelected })}
+        onClick={this.handleClick}>
         <img
           draggable="false"
           id={id}
@@ -28,6 +37,7 @@ class SiteSlide extends Component {
           alt={name}
           onTouchStart={evt => evt.currentTarget.focus()}
         />
+        <span className={styles.siteSlideTitle}>{ReactHTMLParser(name)}</span>
       </div>
     );
   }

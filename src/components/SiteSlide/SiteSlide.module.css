@@ -1,5 +1,3 @@
-:global(.slide):focus,
-:global(.slide):active,
 :global(.slide img):focus,
 :global(.slide img):active {
   -webkit-animation: scale 0.4s ease-in-out 0s;
@@ -12,6 +10,29 @@
 
 :global(.slick-center .innerSlide) {
   border-radius: 50%;
+}
+
+.siteSlideTitle {
+  color: #d0a127;
+  font-size: 51pt;
+  text-transform: uppercase;
+  padding-bottom: 2rem;
+  font-family: BuiltTitling;
+  letter-spacing: 8px;
+  font-weight: bold;
+  text-shadow: 3px 6px 3px rgba(0, 0, 0, 0.5);
+  display: none;
+  padding-left: 10px;
+}
+
+.siteSlide {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.isSelected .siteSlideTitle {
+  display: block;
 }
 
 /* bounce for buttons */
