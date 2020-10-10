@@ -1,7 +1,7 @@
 .mainScreen {
-  min-height: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  z-index: 10;
 }

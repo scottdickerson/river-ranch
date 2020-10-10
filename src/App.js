@@ -3,10 +3,11 @@ import { Switch, Route } from 'react-router';
 import { ROUTES } from './constants/constants';
 import RiverRanchPullScreen from './containers/RiverRanchPullScreen/RiverRanchPullScreen';
 import RiverRanchMainScreen from './containers/RiverRanchMainScreen/RiverRanchMainScreen';
+import styles from './App.module.css';
 
 const App = () => {
   return (
-    <div>
+    <div className={styles.app}>
       <RiverRanchPullScreen />
       <Switch>
         <Route path={ROUTES.MAINSCREEN} component={RiverRanchMainScreen} />

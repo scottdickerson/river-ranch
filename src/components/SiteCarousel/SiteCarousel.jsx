@@ -93,7 +93,7 @@ const SiteCarousel = ({
         className="siteCarousel"
         style={{
           width: `${settings.slidesToShow === 3 ? 65 : 100}%`,
-          left: settings.slidesToShow === 3 ? '200px' : '100px',
+          left: settings.slidesToShow === 3 ? '200px' : '0px',
         }}>
         <Slider {...settings} beforeChange={handleSiteChanged} onSwipe={handleSwiped}>
           {sites.map((site, index) => (

@@ -20,7 +20,7 @@ const RiverRanchPullScreen = ({ history }) => {
   };
 
   return (
-    <PullScreen resetDelay={10000} onClick={showMain} onReset={showPull}>
+    <PullScreen onClick={showMain} onReset={showPull}>
       <img
         alt="River Ranch"
         src={PullScreenImage}
