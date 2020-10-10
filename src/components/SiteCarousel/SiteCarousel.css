@@ -46,6 +46,10 @@
   transform: scale(1.5);
 }
 
+.slick-list {
+  padding: 0rem 2rem;
+}
+
 .slick-center .innerSlide {
   border-width: 1px;
   border-color: white;

@@ -1,0 +1,57 @@
+:global(.slide):focus,
+:global(.slide):active,
+:global(.slide img):focus,
+:global(.slide img):active {
+  -webkit-animation: scale 0.4s ease-in-out 0s;
+  -moz-animation: scale 0.4s ease-in-out 0s;
+  -o-animation: scale 0.4s ease-in-out 0s;
+  animation: scale 0.4s ease-in-out 0s;
+  border-radius: 50%;
+  outline: none;
+}
+
+:global(.slick-center .innerSlide) {
+  border-radius: 50%;
+}
+
+/* bounce for buttons */
+
+@keyframes scale {
+  0% {
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+@-webkit-keyframes scale {
+  0% {
+  }
+  50% {
+    -webkit-transform: scale(1.25);
+  }
+}
+
+@-moz-keyframes scale {
+  0% {
+  }
+  50% {
+    -moz-transform: scale(1.25);
+  }
+}
+
+@-ms-keyframes scale {
+  0% {
+  }
+  50% {
+    -ms-transform: scale(1.25);
+  }
+}
+
+@-o-keyframes scale {
+  0% {
+  }
+  50% {
+    -o-transform: scale(1.25);
+  }
+}
