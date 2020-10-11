@@ -1,6 +1,5 @@
 import React from 'react';
 import { ROUTES } from '../../constants/constants';
-import isNil from 'lodash/isNil';
 import MainScreen from '../../components/MainScreen/MainScreen';
 import SiteCarousel from '../../components/SiteCarousel/SiteCarousel';
 import RiverRanchMainImage from './img/01_02-new.jpg';
@@ -75,7 +74,8 @@ const RiverRanchMainScreen = ({
     history.push(ROUTES.DETAILS.replace(':id', site?.id));
   };
 
-  return isNil(id) ? ( // main screen remembers its selected state but doesn't render if an id is passed
+  return (
+    // main screen remembers its selected state but doesn't render if an id is passed
     <MainScreen>
       <img
         src={RiverRanchMainImage}
@@ -92,7 +92,7 @@ const RiverRanchMainScreen = ({
         siteTapped={handleSiteTapped}
       />
     </MainScreen>
-  ) : null;
+  );
 };
 
 export default withRouter(RiverRanchMainScreen);

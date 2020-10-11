@@ -93,7 +93,11 @@ const SiteCarousel = ({
     <div className="siteCarouselPositioner" style={style}>
       {showBackground ? <div className="siteCarouselBackground" /> : null}
       <div className="siteCarousel">
-        <Slider {...settings} beforeChange={handleSiteChanged} onSwipe={handleSwiped}>
+        <Slider
+          {...settings}
+          key={`slider-${selectedSiteIndex}`} /* I have to throw away and recreate the slider here so that it positions correctly when we change the selected site offscreen */
+          beforeChange={handleSiteChanged}
+          onSwipe={handleSwiped}>
           {sites.map((site, index) => (
             <SiteSlide
               {...site}

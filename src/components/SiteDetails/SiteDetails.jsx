@@ -20,6 +20,13 @@ class SiteDetails extends Component {
     animate: true,
   };
 
+  handleButtonClick = callback => {
+    if (document.activeElement) {
+      document.activeElement.blur();
+    }
+    callback();
+  };
+
   render() {
     const {
       isOpen,
@@ -36,11 +43,23 @@ class SiteDetails extends Component {
       <div className={classnames(styles.siteDetails, className)}>
         <div className={classnames(styles.siteDetailContent, contentClassName)}>{content}</div>
         {onPreviousSite ? (
-          <button className={styles.previousButton} alt="Previous" onClick={onPreviousSite} />
+          <button
+            className={classnames(styles.previousButton, 'button')}
+            alt="Previous"
+            onClick={() => this.handleButtonClick(onPreviousSite)}
+          />
         ) : null}
-        <button alt="Close" className={styles.closeButton} onClick={onCloseSite} />
+        <button
+          alt="Close"
+          className={classnames(styles.closeButton, 'button')}
+          onClick={onCloseSite}
+        />
         {onNextSite ? (
-          <button alt="Next" className={styles.nextButton} onClick={onNextSite} />
+          <button
+            alt="Next"
+            className={classnames(styles.nextButton, 'button')}
+            onClick={() => this.handleButtonClick(onNextSite)}
+          />
         ) : null}
       </div>
     );

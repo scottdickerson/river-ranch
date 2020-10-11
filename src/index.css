@@ -39,44 +39,57 @@ code {
   src: url('./fonts/built titling rg.ttf');
 }
 
+@font-face {
+  font-family: NexaRust;
+  src: url('./fonts/NexaRustSans-Black.otf');
+}
+
 /* bounce for buttons */
 
-@keyframes scale {
+@keyframes buttonBounce {
   0% {
   }
   50% {
-    transform: scale(1.25);
+    transform: scale(1.5);
   }
 }
 
-@-webkit-keyframes scale {
+@-webkit-keyframes buttonBounce {
   0% {
   }
   50% {
-    -webkit-transform: scale(1.25);
+    -webkit-transform: scale(1.5);
   }
 }
 
-@-moz-keyframes scale {
+@-moz-keyframes buttonBounce {
   0% {
   }
   50% {
-    -moz-transform: scale(1.25);
+    -moz-transform: scale(1.5);
   }
 }
 
-@-ms-keyframes scale {
+@-ms-keyframes buttonBounce {
   0% {
   }
   50% {
-    -ms-transform: scale(1.25);
+    -ms-transform: scale(1.5);
   }
 }
 
-@-o-keyframes scale {
+@-o-keyframes buttonBounce {
   0% {
   }
   50% {
-    -o-transform: scale(1.25);
+    -o-transform: scale(1.5);
   }
+}
+
+.button:focus,
+.button:active {
+  -webkit-animation: buttonBounce 0.2s ease-in-out 0s;
+  -moz-animation: buttonBounce 0.2s ease-in-out 0s;
+  -o-animation: buttonBounce 0.2s ease-in-out 0s;
+  animation: buttonBounce 0.2s ease-in-out 0s;
 }

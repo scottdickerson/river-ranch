@@ -1,9 +1,9 @@
-:global(.slide img):focus,
-:global(.slide img):active {
-  -webkit-animation: scale 0.4s ease-in-out 0s;
-  -moz-animation: scale 0.4s ease-in-out 0s;
-  -o-animation: scale 0.4s ease-in-out 0s;
-  animation: scale 0.4s ease-in-out 0s;
+.siteSlide img:focus,
+.siteSlide img:active {
+  -webkit-animation: siteBounce 0.4s ease-in-out 0s;
+  -moz-animation: siteBounce 0.4s ease-in-out 0s;
+  -o-animation: siteBounce 0.4s ease-in-out 0s;
+  animation: siteBounce 0.4s ease-in-out 0s;
   border-radius: 50%;
   outline: none;
 }
@@ -17,9 +17,8 @@
   font-size: 51pt;
   text-transform: uppercase;
   padding-bottom: 2rem;
-  font-family: BuiltTitling;
-  letter-spacing: 8px;
-  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: NexaRust;
   text-shadow: 3px 6px 3px rgba(0, 0, 0, 0.5);
   padding-left: 10px;
   white-space: nowrap;
@@ -43,42 +42,42 @@
 
 /* bounce for buttons */
 
-@keyframes scale {
+@keyframes siteBounce {
   0% {
   }
   50% {
-    transform: scale(1.25);
+    transform: scale(2.25);
   }
 }
 
-@-webkit-keyframes scale {
+@-webkit-keyframes siteBounce {
   0% {
   }
   50% {
-    -webkit-transform: scale(1.25);
+    -webkit-transform: scale(2.25);
   }
 }
 
-@-moz-keyframes scale {
+@-moz-keyframes siteBounce {
   0% {
   }
   50% {
-    -moz-transform: scale(1.25);
+    -moz-transform: scale(2.25);
   }
 }
 
-@-ms-keyframes scale {
+@-ms-keyframes siteBounce {
   0% {
   }
   50% {
-    -ms-transform: scale(1.25);
+    -ms-transform: scale(2.25);
   }
 }
 
-@-o-keyframes scale {
+@-o-keyframes siteBounce {
   0% {
   }
   50% {
-    -o-transform: scale(1.25);
+    -o-transform: scale(2.25);
   }
 }
