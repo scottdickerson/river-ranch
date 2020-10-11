@@ -1,6 +1,5 @@
 .siteDetails {
   position: fixed;
-  top: 30px;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -8,13 +7,14 @@
   color: white;
   overflow: hidden;
   height: 100vh;
+  z-index: 10;
   width: 100%;
 }
 
 .siteDetailContent {
   display: flex;
-  width: 85%;
-  height: 75vh;
+  width: 100%;
+  height: 100vh;
   z-index: 10;
   border: #d0a127 1px solid;
   border-radius: 30px;
@@ -58,12 +58,7 @@
 :global(.bottom-exit) {
   transform: translateY(0%);
 }
-:global(.bottom-exit) .siteDetailBackground {
-  background-image: url("../../img/00-1600x900-RockabillyLegends-Background@2x.png");
-  background-size: cover;
-  opacity: 1;
-  z-index: -1;
-}
+
 :global(.bottom-exit-active) {
   transform: translateY(100%);
   transition: transform 250ms ease-in-out;
@@ -73,11 +68,44 @@
 }
 .closeButton {
   position: absolute;
-  right: 5%;
+  z-index: 20;
+  right: 8%;
   top: 60px;
   transform: scale(1.5);
   cursor: pointer;
   padding: 1rem;
+  background-image: url('./img/X-Button.png');
+  background-color: transparent;
+  background-size: contain;
+  border: none;
+}
+
+.previousButton {
+  background-image: url('./img/Left-Arrow.png');
+  background-color: transparent;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+}
+
+.nextButton {
+  background-image: url('./img/Right-Arrow.png');
+  background-color: transparent;
+  background-size: contain;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+}
+.previousButton,
+.nextButton {
+  background-repeat: no-repeat;
+  border: none;
+  width: 50px;
+  z-index: 20;
+  height: 100px;
+  background-position: center;
+  cursor: pointer;
 }
 
 .closeButton:focus,

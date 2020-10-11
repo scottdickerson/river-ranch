@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { ROUTES } from '../../constants/constants';
+import isNil from 'lodash/isNil';
 import MainScreen from '../../components/MainScreen/MainScreen';
 import SiteCarousel from '../../components/SiteCarousel/SiteCarousel';
 import RiverRanchMainImage from './img/01_02-new.jpg';
+import { withRouter } from 'react-router';
 import styles from '../RiverRanchPullScreen/RiverRanchPullScreen.module.css';
 
 import image1 from '../../containers/RiverRanchSiteSlide/img/02.png';
@@ -21,31 +24,58 @@ import image14 from '../../containers/RiverRanchSiteSlide/img/15.png';
 import image15 from '../../containers/RiverRanchSiteSlide/img/16.png';
 import image16 from '../../containers/RiverRanchSiteSlide/img/17.png';
 
-const sites = [
-  { id: 0, thumbnail: image1, name: 'Image 1', detailsSrc: 'mydetails' },
-  { id: 1, thumbnail: image2, name: 'Image 2', detailsSrc: 'mydetails' },
-  { id: 2, thumbnail: image3, name: 'Image 3', detailsSrc: 'mydetails' },
-  { id: 3, thumbnail: image4, name: 'Image 4', detailsSrc: 'mydetails' },
-  { id: 4, thumbnail: image5, name: 'Image 5', detailsSrc: 'mydetails' },
-  { id: 5, thumbnail: image6, name: 'Image 6', detailsSrc: 'mydetails' },
-  { id: 6, thumbnail: image7, name: 'Image 7', detailsSrc: 'mydetails' },
-  { id: 7, thumbnail: image8, name: 'Image 8', detailsSrc: 'mydetails' },
-  { id: 8, thumbnail: image9, name: 'Image 9', detailsSrc: 'mydetails' },
-  { id: 9, thumbnail: image10, name: 'Image 10', detailsSrc: 'mydetails' },
-  { id: 10, thumbnail: image11, name: 'Image 11', detailsSrc: 'mydetails' },
-  { id: 11, thumbnail: image12, name: 'Image 12', detailsSrc: 'mydetails' },
-  { id: 12, thumbnail: image13, name: 'Image 13', detailsSrc: 'mydetails' },
-  { id: 13, thumbnail: image14, name: 'Image 14', detailsSrc: 'mydetails' },
-  { id: 14, thumbnail: image15, name: 'Image 15', detailsSrc: 'mydetails' },
-  { id: 15, thumbnail: image16, name: 'Image 16', detailsSrc: 'mydetails' },
+import details2 from '../../containers/RiverRanchSiteDetails/img/02_02.jpg';
+import details3 from '../../containers/RiverRanchSiteDetails/img/03_02.jpg';
+import details4 from '../../containers/RiverRanchSiteDetails/img/04_02.jpg';
+import details5 from '../../containers/RiverRanchSiteDetails/img/05_02-new.jpg';
+import details6 from '../../containers/RiverRanchSiteDetails/img/06_02.jpg';
+import details7 from '../../containers/RiverRanchSiteDetails/img/07_02.jpg';
+import details8 from '../../containers/RiverRanchSiteDetails/img/08_02.jpg';
+import details9 from '../../containers/RiverRanchSiteDetails/img/09_02.jpg';
+import details10 from '../../containers/RiverRanchSiteDetails/img/10_02.jpg';
+import details11 from '../../containers/RiverRanchSiteDetails/img/11_02.jpg';
+import details12 from '../../containers/RiverRanchSiteDetails/img/12_02.jpg';
+import details13 from '../../containers/RiverRanchSiteDetails/img/13_02.jpg';
+import details14 from '../../containers/RiverRanchSiteDetails/img/14_02.jpg';
+import details15 from '../../containers/RiverRanchSiteDetails/img/15_02.jpg';
+import details16 from '../../containers/RiverRanchSiteDetails/img/16_02.jpg';
+import details17 from '../../containers/RiverRanchSiteDetails/img/17_02-new.jpg';
+
+export const sites = [
+  { id: 0, thumbnail: image1, name: 'Native Texas', detailsSrc: details2 },
+  { id: 1, thumbnail: image2, name: 'Early Roads', detailsSrc: details3 },
+  { id: 2, thumbnail: image3, name: 'Contact and Conflict', detailsSrc: details4 },
+  { id: 3, thumbnail: image4, name: 'Bryson Family', detailsSrc: details5 },
+  { id: 4, thumbnail: image5, name: 'Noble Bryson', detailsSrc: details6 },
+  { id: 5, thumbnail: image6, name: 'Bryson Ranch', detailsSrc: details7 },
+  { id: 6, thumbnail: image7, name: 'Rock Walls', detailsSrc: details8 },
+  { id: 7, thumbnail: image8, name: 'Bryson Mill', detailsSrc: details9 },
+  { id: 8, thumbnail: image9, name: 'Liberty Hill', detailsSrc: details10 },
+  { id: 9, thumbnail: image10, name: 'Cattle Drives', detailsSrc: details11 },
+  { id: 10, thumbnail: image11, name: 'Camp Meetings', detailsSrc: details12 },
+  { id: 11, thumbnail: image12, name: 'Freedom Colonies', detailsSrc: details13 },
+  { id: 12, thumbnail: image13, name: 'Swimming Holes', detailsSrc: details14 },
+  { id: 13, thumbnail: image14, name: 'Cedar Fever', detailsSrc: details15 },
+  { id: 14, thumbnail: image15, name: 'Growing Pains', detailsSrc: details16 },
+  { id: 15, thumbnail: image16, name: 'Creating a Park', detailsSrc: details17 },
 ];
 
-const RiverRanchMainScreen = () => {
-  const [selectedSiteIndex, setSelectedSiteIndex] = useState(0);
+const RiverRanchMainScreen = ({
+  history,
+  match: {
+    params: { id },
+  },
+  selectedSiteIndex,
+  setSelectedSiteIndex,
+}) => {
   const handleSiteChanged = (oldSite, newSite) => {
     setSelectedSiteIndex(newSite);
   };
-  return (
+  const handleSiteTapped = site => {
+    history.push(ROUTES.DETAILS.replace(':id', site?.id));
+  };
+
+  return isNil(id) ? ( // main screen remembers its selected state but doesn't render if an id is passed
     <MainScreen>
       <img
         src={RiverRanchMainImage}
@@ -59,10 +89,10 @@ const RiverRanchMainScreen = () => {
         showArrows
         selectedSiteIndex={selectedSiteIndex}
         siteChanged={handleSiteChanged}
-        siteTapped={(...args) => console.log('siteTapped', args)}
+        siteTapped={handleSiteTapped}
       />
     </MainScreen>
-  );
+  ) : null;
 };
 
-export default RiverRanchMainScreen;
+export default withRouter(RiverRanchMainScreen);

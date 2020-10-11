@@ -1,6 +1,5 @@
 export const ROUTES = {
-    PULLSCREEN: "/",
-    MAINSCREEN: "/main",
-    DETAILS: "/main/details/:id"
-  };
-  
+  PULLSCREEN: '/',
+  MAINSCREEN: '/main',
+  DETAILS: '/details/:id',
+};

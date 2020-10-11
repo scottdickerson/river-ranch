@@ -1,59 +1,51 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { CSSTransition } from "react-transition-group";
-import ButtonClose from "./img/Button-Close-X.png";
-import classnames from "classnames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
+import classnames from 'classnames';
 
-import styles from "./SiteDetails.module.css";
+import styles from './SiteDetails.module.css';
 
 class SiteDetails extends Component {
   static propTypes = {
-    rightPane: PropTypes.node.isRequired,
-    leftPane: PropTypes.node.isRequired,
+    content: PropTypes.node.isRequired,
     isOpen: PropTypes.bool.isRequired,
     onCloseSite: PropTypes.func.isRequired,
+    onNextSite: PropTypes.func,
+    onPreviousSite: PropTypes.func,
     className: PropTypes.string,
-    contentClassName: PropTypes.string
+    contentClassName: PropTypes.string,
   };
 
   static defaultProps = {
-    animate: true
+    animate: true,
   };
 
   render() {
     const {
       isOpen,
-      rightPane,
-      leftPane,
+      content,
       onCloseSite,
       className,
       contentClassName,
-      animate
+      animate,
+      onNextSite,
+      onPreviousSite,
     } = this.props;
 
     const details = (
       <div className={classnames(styles.siteDetails, className)}>
-        <div className={classnames(styles.siteDetailContent, contentClassName)}>
-          <div className={styles.siteDetailBackground} />
-          <div className={styles.leftPane}>{leftPane}</div>
-          <div className={styles.rightPane}>{rightPane}</div>
-        </div>
-        <img
-          src={ButtonClose}
-          alt="Close"
-          className={styles.closeButton}
-          onClick={onCloseSite}
-        />
+        <div className={classnames(styles.siteDetailContent, contentClassName)}>{content}</div>
+        {onPreviousSite ? (
+          <button className={styles.previousButton} alt="Previous" onClick={onPreviousSite} />
+        ) : null}
+        <button alt="Close" className={styles.closeButton} onClick={onCloseSite} />
+        {onNextSite ? (
+          <button alt="Next" className={styles.nextButton} onClick={onNextSite} />
+        ) : null}
       </div>
     );
     return animate ? (
-      <CSSTransition
-        mountOnEnter
-        unmountOnExit
-        in={isOpen}
-        timeout={500}
-        classNames="bottom"
-      >
+      <CSSTransition mountOnEnter unmountOnExit in={isOpen} timeout={500} classNames="bottom">
         {details}
       </CSSTransition>
     ) : isOpen ? (
