@@ -32,8 +32,14 @@
   transform: scale(0.3);
 }
 
-.isNearSelected {
-  transform: scale(0.5);
+/** need to make it bigger but also adjust position to handle the growth **/
+.isBeforeSelected:first-of-type {
+  transform: scale(0.5) translateX(-35%);
+}
+
+/** need to make it bigger but also adjust position to handle the growth **/
+.isAfterSelected:first-of-type {
+  transform: scale(0.5) translateX(35%);
 }
 
 .isSelected {

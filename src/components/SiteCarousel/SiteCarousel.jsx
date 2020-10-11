@@ -104,8 +104,10 @@ const SiteCarousel = ({
               key={`div-${site.id}`}
               onClick={handleSiteTapped}
               isSelected={index === selectedSiteIndex}
-              isNearSelected={
-                index === (selectedSiteIndex - 1 + sites.length) % sites.length || // handle left index
+              isBeforeSelected={
+                index === (selectedSiteIndex - 1 + sites.length) % sites.length // handle left index
+              }
+              isAfterSelected={
                 index === (selectedSiteIndex + 1) % sites.length // handle right index
               }
             />

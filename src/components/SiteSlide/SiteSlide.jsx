@@ -11,12 +11,14 @@ class SiteSlide extends Component {
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
     isSelected: PropTypes.bool,
-    isNearSelected: PropTypes.bool,
+    isBeforeSelected: PropTypes.bool,
+    isAfterSelected: PropTypes.bool,
   };
 
   static defaultProps = {
     isSelected: false,
-    isNearSelected: false,
+    isBeforeSelected: false,
+    isAfterSelected: false,
   };
 
   handleClick = event => {
@@ -25,12 +27,13 @@ class SiteSlide extends Component {
   };
 
   render() {
-    const { id, thumbnail, name, isSelected, isNearSelected } = this.props;
+    const { id, thumbnail, name, isSelected, isBeforeSelected, isAfterSelected } = this.props;
     return (
       <div
         className={classnames(styles.siteSlide, {
           [styles.isSelected]: isSelected,
-          [styles.isNearSelected]: isNearSelected,
+          [styles.isBeforeSelected]: isBeforeSelected,
+          [styles.isAfterSelected]: isAfterSelected,
         })}
         onClick={this.handleClick}>
         <img
