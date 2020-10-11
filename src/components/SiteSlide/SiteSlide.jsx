@@ -11,10 +11,12 @@ class SiteSlide extends Component {
     name: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
     isSelected: PropTypes.bool,
+    isNearSelected: PropTypes.bool,
   };
 
   static defaultProps = {
     isSelected: false,
+    isNearSelected: false,
   };
 
   handleClick = event => {
@@ -23,10 +25,13 @@ class SiteSlide extends Component {
   };
 
   render() {
-    const { id, thumbnail, name, isSelected } = this.props;
+    const { id, thumbnail, name, isSelected, isNearSelected } = this.props;
     return (
       <div
-        className={classnames('slide', styles.siteSlide, { [styles.isSelected]: isSelected })}
+        className={classnames(styles.siteSlide, {
+          [styles.isSelected]: isSelected,
+          [styles.isNearSelected]: isNearSelected,
+        })}
         onClick={this.handleClick}>
         <img
           draggable="false"
@@ -37,7 +42,7 @@ class SiteSlide extends Component {
           alt={name}
           onTouchStart={evt => evt.currentTarget.focus()}
         />
-        <span className={styles.siteSlideTitle}>{ReactHTMLParser(name)}</span>
+        <span className={styles.siteSlideTitle}>{isSelected ? ReactHTMLParser(name) : ' '}</span>
       </div>
     );
   }

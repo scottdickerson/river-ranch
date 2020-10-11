@@ -56,6 +56,7 @@ const RiverRanchMainScreen = () => {
       />
       <SiteCarousel
         sites={sites}
+        showArrows
         selectedSiteIndex={selectedSiteIndex}
         siteChanged={handleSiteChanged}
         siteTapped={(...args) => console.log('siteTapped', args)}

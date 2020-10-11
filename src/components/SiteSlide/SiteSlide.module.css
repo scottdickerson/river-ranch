@@ -21,18 +21,23 @@
   letter-spacing: 8px;
   font-weight: bold;
   text-shadow: 3px 6px 3px rgba(0, 0, 0, 0.5);
-  display: none;
   padding-left: 10px;
 }
 
 .siteSlide {
+  /* default slide needs to shrink */
   display: flex;
   align-items: center;
   flex-flow: column;
+  transform: scale(0.3);
 }
 
-.isSelected .siteSlideTitle {
-  display: block;
+.isNearSelected {
+  transform: scale(0.5);
+}
+
+.isSelected {
+  transform: scale(0.75);
 }
 
 /* bounce for buttons */

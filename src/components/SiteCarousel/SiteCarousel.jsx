@@ -17,6 +17,7 @@ const propTypes = {
   isPaused: PropTypes.bool,
   autoPlayMS: PropTypes.number,
   showBackground: PropTypes.bool,
+  showArrows: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -25,6 +26,7 @@ const defaultProps = {
   isPaused: false,
   showBackground: false,
   autoPlayMS: 5000,
+  showArrows: false,
 };
 /**
  * Carousel component that triggers siteTapped when a site is tapped and
@@ -40,6 +42,7 @@ const SiteCarousel = ({
   isPaused,
   autoPlayMS,
   showBackground,
+  showArrows,
 }) => {
   const swipeTimeout = useRef();
   const recentlySwiped = useRef(false); // this is like a debouncer to keep from triggering the tap event after a swipe
@@ -70,7 +73,7 @@ const SiteCarousel = ({
   const settings = {
     dots: false,
     infinite: true,
-    arrows: false,
+    arrows: showArrows,
     slidesToShow: 5,
     speed: 500,
     cssEase: 'ease-out',
@@ -89,12 +92,7 @@ const SiteCarousel = ({
   return (
     <div className="siteCarouselPositioner" style={style}>
       {showBackground ? <div className="siteCarouselBackground" /> : null}
-      <div
-        className="siteCarousel"
-        style={{
-          width: `${settings.slidesToShow === 3 ? 65 : 100}%`,
-          left: settings.slidesToShow === 3 ? '200px' : '0px',
-        }}>
+      <div className="siteCarousel">
         <Slider {...settings} beforeChange={handleSiteChanged} onSwipe={handleSwiped}>
           {sites.map((site, index) => (
             <SiteSlide
@@ -102,6 +100,10 @@ const SiteCarousel = ({
               key={`div-${site.id}`}
               onClick={handleSiteTapped}
               isSelected={index === selectedSiteIndex}
+              isNearSelected={
+                index === (selectedSiteIndex - 1 + sites.length) % sites.length || // handle left index
+                index === (selectedSiteIndex + 1) % sites.length // handle right index
+              }
             />
           ))}
         </Slider>

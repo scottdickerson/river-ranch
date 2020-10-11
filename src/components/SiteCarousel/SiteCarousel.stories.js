@@ -35,6 +35,7 @@ const Template = args => {
     <SiteCarousel
       {...args}
       selectedSiteIndex={selectedSiteIndex}
+      showArrows
       siteChanged={handleSiteChanged}></SiteCarousel>
   );
 };
@@ -42,6 +43,7 @@ const Template = args => {
 export const Default = Template.bind({});
 
 Default.args = {
+  selectedSiteIndex: 0,
   sites: [
     { id: 0, thumbnail: image1, name: 'Image 1', detailsSrc: 'mydetails' },
     { id: 1, thumbnail: image2, name: 'Image 2', detailsSrc: 'mydetails' },

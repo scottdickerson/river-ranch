@@ -1,6 +1,6 @@
 .siteCarousel {
   position: relative;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -31,23 +31,41 @@
   cursor: pointer;
 }
 
-/* default slide needs to shrink */
-.slick-active {
-  transform: scale(0.5);
-}
-
-/* sadly this doesn't seem to work!
-.slick-active:nth-of-type(1),
-.slick-active:nth-of-type(5) {
-  transform: scale(0.3);
-}
-*/
-.siteCarousel .slick-center {
-  transform: scale(0.75);
-}
-
 .slick-list {
   padding: 0rem 2rem;
+}
+
+.slick-prev,
+.slick-prev:focus,
+.slick-prev:hover {
+  background-image: url('./img/Left-Arrow.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slick-next::before,
+.slick-prev::before {
+  display: none;
+}
+
+.slick-next,
+.slick-next:focus,
+.slick-next:hover {
+  background-image: url('./img/Right-Arrow.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slick-arrow {
+  height: 100px;
+  width: 40px;
+  top: 42%;
+}
+
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  outline: none;
 }
 
 .slick-center .innerSlide {
