@@ -1,5 +1,4 @@
-.siteSlide img:focus,
-.siteSlide img:active {
+.siteSlide img:hover {
   -webkit-animation: siteBounce 0.4s ease-in-out 0s;
   -moz-animation: siteBounce 0.4s ease-in-out 0s;
   -o-animation: siteBounce 0.4s ease-in-out 0s;
@@ -52,7 +51,7 @@
   0% {
   }
   50% {
-    transform: scale(2.25);
+    transform: scale(2);
   }
 }
 
@@ -60,7 +59,7 @@
   0% {
   }
   50% {
-    -webkit-transform: scale(2.25);
+    -webkit-transform: scale(2);
   }
 }
 
@@ -68,7 +67,7 @@
   0% {
   }
   50% {
-    -moz-transform: scale(2.25);
+    -moz-transform: scale(2);
   }
 }
 
@@ -76,7 +75,7 @@
   0% {
   }
   50% {
-    -ms-transform: scale(2.25);
+    -ms-transform: scale(2);
   }
 }
 
@@ -84,6 +83,6 @@
   0% {
   }
   50% {
-    -o-transform: scale(2.25);
+    -o-transform: scale(2);
   }
 }
