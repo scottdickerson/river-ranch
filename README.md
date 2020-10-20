@@ -43,7 +43,7 @@ The images for each page are stored under each /src/containers/img directory and
 
 ```yarn build
 yarn global add serve
-yarn serve -s build
+serve -s build
 ```
 
 ## Setting up scheduled tasks on kiosk
